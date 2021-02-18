@@ -11,8 +11,24 @@ class Pixel extends React.Component {
         }
     }
 
-    changeFill = event => {
+    changeFill() {
         this.setState({fill: this.props.currentColor()});
+    }
+
+    onMouseDown = event => {
+        this.props.startDrawing();
+
+        this.changeFill();
+    }
+
+    onMouseUp = event => {
+        this.props.stopDrawing();
+    }
+
+    onMouseOver = event => {
+        if(this.props.drawingActivated()) {
+            this.changeFill();
+        }
     }
 
 
@@ -23,7 +39,9 @@ class Pixel extends React.Component {
                 <rect
                     className = "interior empty"
                     style={{fill: this.state.fill}}
-                    onClick={this.changeFill}
+                    onMouseDown={this.onMouseDown}
+                    onMouseUp={this.onMouseUp}
+                    onMouseOver={this.onMouseOver}
                 />
             </svg>
         );

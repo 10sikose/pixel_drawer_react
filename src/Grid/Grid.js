@@ -16,7 +16,15 @@ class Grid extends React.Component {
             const ROW = [];
             
             for(let w = 1; w <= props.width; w++) {
-                ROW.push(<Pixel key={w + ", " + h} currentColor={props.currentColor}/>);
+                ROW.push(
+                    <Pixel
+                        key={w + ", " + h}
+                        currentColor={props.currentColor}
+                        drawingActivated={props.drawingActivated}
+                        startDrawing={props.startDrawing}
+                        stopDrawing={props.stopDrawing}
+                    />
+                );
             }
 
             this.ROWS.push(<div key={h} className="row">{ROW}</div>);
