@@ -1,0 +1,11 @@
+.pixel {
+    width: var(--pixel-width);
+    height: var(--pixel-height);
+}
+
+.interior {
+    width: var(--pixel-width);
+    height: var(--pixel-height);
+    stroke: var(--pixel-stroke);
+    overflow: visible;
+}

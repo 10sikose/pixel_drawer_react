@@ -1,23 +1,20 @@
 import React from 'react';
-import Pixel from './Pixel/Pixel';
-import './Grid.css';
+import PixelItem from '../PixelItem/PixelItem';
+import './PixelGrid.css';
 
-class Grid extends React.Component {
+class PixelGrid extends React.Component {
 
     constructor(props) {
         super(props);
 
         this.ROWS = [];
 
-        console.log(props.width);
-        console.log(props.height);
-
         for(let h = 1; h <= props.height; h++) {
             const ROW = [];
             
             for(let w = 1; w <= props.width; w++) {
                 ROW.push(
-                    <Pixel
+                    <PixelItem
                         key={w + ", " + h}
                         currentColor={props.currentColor}
                         drawingActivated={props.drawingActivated}
@@ -42,4 +39,4 @@ class Grid extends React.Component {
 
 }
 
-export default Grid;
+export default PixelGrid;

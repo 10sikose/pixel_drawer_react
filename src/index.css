@@ -1,0 +1,22 @@
+:root {
+    /*
+    colors
+    */
+    --main-background: #282a36;
+    --toolbox-background: #44475a;
+    --toolbox-color: #ffffff;
+    --toolbox-border-color: #6272a4;
+    --pixel-stroke: #646464;
+
+    /*
+    dimensions
+    */
+    --pixel-width: 15px;
+    --pixel-height: 15px;
+
+}
+
+body {
+    background-color: var(--main-background);
+    text-align: center;
+}
