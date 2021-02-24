@@ -6,11 +6,19 @@ import './App.css';
 
 class App extends React.Component {
 
-    currentColor = COLORS.defaultColor;
+    pencilColor = COLORS.defaultColor;
+    eraserColor = COLORS.emptyColor;
     drawingActivated = false;
+    pencilMode = true;
+    eraserMode = false;
 
-    getCurrentColor = () => {
-        return this.currentColor;
+    getColor = () => {
+        if(this.pencilMode && !this.eraserMode) {
+            return this.pencilColor;
+        }
+        else if (!this.pencilMode && this.eraserMode){
+            return this.eraserColor;
+        }
     }
 
     activateDrawing = () => {
@@ -25,18 +33,44 @@ class App extends React.Component {
         return this.drawingActivated;
     }
 
+    deactivatePencilMode = () => {
+        this.pencilMode = false;
+    }
+
+    activatePencilMode = () => {
+        this.pencilMode = true;
+    }
+
+    deactivateEraserMode = () => {
+        this.eraserMode = false;
+    }
+
+    activateEraserMode = () => {
+        this.eraserMode = true;
+    }
+    
+
     render() {
         return (
-            <div id="app-container">
-                <Toolbox />
+            <React.Fragment>
+                <Toolbox 
+                    pencilAction={() => {
+                        this.deactivateEraserMode();
+                        this.activatePencilMode();
+                    }}
+                    eraserAction={() => {
+                        this.deactivatePencilMode();
+                        this.activateEraserMode();
+                    }}
+                />
                 <PixelGrid
                     width={70} height={45}
-                    currentColor={this.getCurrentColor}
+                    currentColor={this.getColor}
                     drawingActivated={this.isDrawingActivated}
                     startDrawing={this.activateDrawing}
                     stopDrawing={this.deactivateDrawing}
                 />
-            </div>
+            </React.Fragment>
         );
     }
 }

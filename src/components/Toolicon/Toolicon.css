@@ -1,0 +1,37 @@
+.toolbox-icon {
+    display: block;
+    width: 30px;
+    height: 30px;
+    padding: 5px 5px 5px 5px;
+    fill: var(--toolbox-color);
+    cursor: pointer;
+}
+
+.toolbox-icon:active {
+    padding: 8px 8px 8px 8px;
+}
+
+.tooltip-container {
+    position: relative;
+}
+  
+.tooltip-container .tooltip-text {
+    visibility: hidden;
+    width: 80px;
+    background-color:  #44475a;
+    color: var(--toolbox-color);
+    text-align: center;
+    border: 1px solid var(--toolbox-border-color);
+    border-radius: 6px;
+    padding: 5px 5px;
+  
+    /* Position the tooltip */
+    position: absolute;
+    top: 10%;
+    left: 50px;
+    z-index: 4;
+}
+  
+  .tooltip-container:hover .tooltip-text {
+    visibility: visible;
+}

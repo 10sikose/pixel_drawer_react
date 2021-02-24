@@ -1,0 +1,5 @@
+.highlighted {
+    border: solid #6272a4;
+    border-radius: 10px;
+    box-shadow: 0px 0px 10px #6272a4;
+  }
