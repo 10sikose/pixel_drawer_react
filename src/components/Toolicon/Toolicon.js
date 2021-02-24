@@ -1,7 +1,7 @@
 import React from 'react';
 import './Toolicon.css';
 
-const ICON_SVG = {
+const ICON_JSX = {
     pencil: (
         <React.Fragment>
             <svg xmlns="http://www.w3.org/2000/svg" className="bi bi-pencil toolbox-icon" viewBox="0 0 16 16">
@@ -29,7 +29,7 @@ const ICON_SVG = {
 const Toolicon = props => {
     return (
         <div className="tooltip-container" onClick={e => props.onClick()}>
-            {ICON_SVG[props.icon]}
+            {ICON_JSX[props.icon]}
         </div>
     );
 

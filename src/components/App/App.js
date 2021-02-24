@@ -21,6 +21,10 @@ class App extends React.Component {
         }
     }
 
+    setPencilColor = newColor => {
+        this.pencilColor = newColor;
+    }
+
     activateDrawing = () => {
         this.drawingActivated = true;
     }
@@ -62,6 +66,7 @@ class App extends React.Component {
                         this.deactivatePencilMode();
                         this.activateEraserMode();
                     }}
+                    colorboxAction={this.setPencilColor}
                 />
                 <PixelGrid
                     width={70} height={45}

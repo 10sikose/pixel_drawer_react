@@ -1,6 +1,7 @@
 import React from 'react';
 import Highlightable from '../Highlightable/Highlightable';
 import Toolicon from '../Toolicon/Toolicon';
+import Colorbox from '../Colorbox/Colorbox';
 import './Toolbox.css';
 
 class Toolbox extends React.Component {
@@ -14,11 +15,12 @@ class Toolbox extends React.Component {
             eraser: 'unhighlighted'
         }
 
-        this.iconNames = ["pencil", "eraser"];
+        this.iconNames = ["pencil", "colorbox", "eraser"];
 
         this.actions = {
             pencil: this.props.pencilAction,
-            eraser: this.props.eraserAction
+            eraser: this.props.eraserAction,
+            colorbox: () => {console.log("STH")}
         }
     }
 
@@ -34,6 +36,9 @@ class Toolbox extends React.Component {
 
     renderIcons() {
         const ICONS = this.iconNames.map(icon => {
+            if(icon === "colorbox") {
+                return <Colorbox key={icon} onChange={this.props.colorboxAction}/>;
+            }
             return (
                 <Highlightable key={icon} highlighted={this.state[icon]} onClick={() => this.setHighlight(icon)}>
                     <Toolicon icon={icon} onClick={this.actions[icon]}/>
