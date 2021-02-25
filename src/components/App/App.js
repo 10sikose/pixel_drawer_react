@@ -14,6 +14,7 @@ class App extends React.Component {
 
     getColor = () => {
         if(this.pencilMode && !this.eraserMode) {
+            //console.log(this.pencilColor);
             return this.pencilColor;
         }
         else if (!this.pencilMode && this.eraserMode){
@@ -22,6 +23,7 @@ class App extends React.Component {
     }
 
     setPencilColor = newColor => {
+        //console.log(newColor);
         this.pencilColor = newColor;
     }
 

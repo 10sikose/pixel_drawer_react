@@ -1,0 +1,24 @@
+.tool-item-container {
+    position: relative;
+}
+  
+.tool-item-container .tooltip-text {
+    visibility: hidden;
+    width: 80px;
+    background-color:  #44475a;
+    color: var(--toolbox-color);
+    text-align: center;
+    border: 1px solid var(--toolbox-border-color);
+    border-radius: 6px;
+    padding: 5px 5px;
+  
+    /* Position the tooltip */
+    position: absolute;
+    top: 10%;
+    left: 50px;
+    z-index: 4;
+}
+  
+.tool-item-container:hover .tooltip-text {
+    visibility: visible;
+}

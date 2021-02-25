@@ -2,6 +2,7 @@ import React from 'react';
 import Highlightable from '../Highlightable/Highlightable';
 import Toolicon from '../Toolicon/Toolicon';
 import Colorbox from '../Colorbox/Colorbox';
+import ToolItemContainer from '../ToolItemContainer/ToolItemContainer';
 import './Toolbox.css';
 
 class Toolbox extends React.Component {
@@ -37,11 +38,17 @@ class Toolbox extends React.Component {
     renderIcons() {
         const ICONS = this.iconNames.map(icon => {
             if(icon === "colorbox") {
-                return <Colorbox key={icon} onChange={this.props.colorboxAction}/>;
+                return (
+                    <ToolItemContainer key={icon}>
+                        <Colorbox onInput={this.props.colorboxAction}/>
+                    </ToolItemContainer>
+                );
             }
             return (
                 <Highlightable key={icon} highlighted={this.state[icon]} onClick={() => this.setHighlight(icon)}>
-                    <Toolicon icon={icon} onClick={this.actions[icon]}/>
+                    <ToolItemContainer>
+                        <Toolicon icon={icon} onClick={this.actions[icon]}/>
+                    </ToolItemContainer>
                 </Highlightable>
             );
         });
